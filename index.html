@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="editor">
+        <div class="head">
+        <p class="ht">Html</p>
+        <p class="cs">Css</p>
+        <p class="js">Javascript</p>
+        </div>
+        <textarea name="" id="html-code" style=""></textarea>
+        <textarea name="" id="css-code" style=""></textarea>
+        <textarea name="" id="javascript-code" style=""></textarea>
+        <iframe id="output" style="height: 350px; width: 1520px;"></iframe>
+
+    </div>
+
+    <button onclick="validate()" id="validate" class="validate">Validate</button>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    function run(){
+    let html = document.querySelector('.editor #html-code').value;
+    let css = "<style>"+document.querySelector('.editor #css-code').value+"</style>";
+    let js = document.querySelector('.editor #javascript-code').value;
+    let output = document.querySelector('.editor #output')
+
+    output.contentDocument.body.innerHTML =html+css;
+    output.contentWindow.eval(js);
+
+}
+document.querySelector('.editor #html-code').addEventListener("keyup",run);
+document.querySelector('.editor #css-code').addEventListener("keyup",run);
+document.querySelector('.editor #javascript-code').addEventListener("keyup",run);
+
+
+
+
+
+function validate(){
+    let x = document.getElementById('output');
+    let y = document.getElementById('output').value;
+    let keys =Object.getOwnPropertyNames(x)
+    console.log(keys);
+    console.log(y);
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.head{
+    display: flex;
+    justify-content: space-evenly;
+    height: 30px;
+    background-color: rgb(53, 52, 52);
+    align-items: center;
+    color: white;
+    font-size: 20px;
+}
+body{
+    background: #252830;
+}
+#html-code{
+    width: 480px;
+     height: 300px;
+     border-radius: 10px;
+      background: rgb(21, 7, 7); 
+      color: white;
+      border-color: rgb(17, 188, 188);
+      -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    font-size: 20px;
+}
+#css-code{
+    width: 480px;
+     margin-left: 15px;
+     height: 300px;
+     border-radius: 10px;
+    background: rgb(21, 7, 7);
+    color: white;
+    border-color: rgb(17, 188, 188);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+#javascript-code{
+    width: 480px;
+     margin-left: 15px;
+      height: 300px;
+       border-radius: 10px;
+    background: rgb(21, 7, 7);
+    color: white;
+    border-color: rgb(17, 188, 188);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+#output{
+    background: rgb(90, 89, 89);
+    border-color: white;
+    border:  2px solid white;
+    
+}
+#html-code:hover{
+    background-color: rgb(20, 20, 228);
+}
+#css-code:hover{
+    background-color: rgb(20, 20, 228);
+}
+  
+#javascript-code:hover{
+    background-color: rgb(20, 20, 228);
+}
+  
+    
+</style>
+</body>
+</html>
