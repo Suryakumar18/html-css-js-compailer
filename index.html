@@ -19,6 +19,7 @@
         <textarea name="" id="css-code" style=""></textarea>
         <textarea name="" id="javascript-code" style=""></textarea>
         <iframe id="output" style="height: 350px; width: 1520px;"></iframe>
+        
 
     </div>
     
@@ -36,7 +37,7 @@
     </div>
 
  
-        <button class="btn btn-primary" type="button" onclick="validate()" id="validate" class="validate" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" sty>validCode</button>
+        <button class="btn btn-primary" type="button" onclick="SumValidate()" id="validate" class="validate" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" sty>validCode</button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
           <div class="offcanvas-header">
             <h5 id="offcanvasRightLabel" style="margin-left: 40px;">Test Cases</h5>
@@ -54,7 +55,10 @@
 
 
 <script>
-    document.getElementById('html-code').value="<div class='container'>" + "</div>"
+    document.getElementById('html-code').value="<div class='container'><label for='firstnumber'>firstNmber</label><br><input type='number' id='firstnumber'><br><label for='secondnumber'>secondNmber</label><br><input type='number' id='secondnumber'><p id='result'></p><button id='bt' onclick=sum()>sum</button></div>"
+    document.getElementById('css-code').value="input{height: 30px;width: 300px}";
+    document.getElementById('javascript-code').value="function sum(){}";
+    
     function run(){
     let html = document.querySelector('.editor #html-code').value;
     let css = "<style>"+document.querySelector('.editor #css-code').value+"</style>";
@@ -73,139 +77,80 @@ document.querySelector('.editor #javascript-code').addEventListener("keyup",run)
 
 
 
-function validate(){
-     var iframe = document.getElementById("output");
-    // var elmnt1 = iframe.contentWindow.document.getElementsByTagName("h1")[0].innerHTML;
-    // var elmnt2 = iframe.contentWindow.document.getElementsByTagName("h1")[1].innerHTML;
-    // var elmnt3 = iframe.contentWindow.document.getElementsByTagName("h1")[2].innerHTML;
+// function validate(){
+//      var iframe = document.getElementById("output");
+//     // var elmnt1 = iframe.contentWindow.document.getElementsByTagName("h1")[0].innerHTML;
+//     // var elmnt2 = iframe.contentWindow.document.getElementsByTagName("h1")[1].innerHTML;
+//     // var elmnt3 = iframe.contentWindow.document.getElementsByTagName("h1")[2].innerHTML;
     
 
 
 
-        if(iframe.contentWindow.document.getElementsByTagName("h1")[0]=="[object HTMLHeadingElement]"){
-            if(iframe.contentWindow.document.getElementsByTagName("h1")[0].innerHTML=="testing 1"){
-                document.getElementById("val").innerHTML +="<h5 style=\"color:green\">test case 1 passed</h5>";
-            }
-            else{
-                document.getElementById("val").innerHTML +="<h5 style=\"color:red\">test case 1 failed</h5>";
-            }
-        }
-        else{
-            document.getElementById("val").innerHTML +="<h5 style=\"color:red\">test case 1 failed</h5>";
-        }
-
-
-        if(iframe.contentWindow.document.getElementsByTagName("h1")[1]=="[object HTMLHeadingElement]"){
-            if(iframe.contentWindow.document.getElementsByTagName("h1")[1].innerHTML=="testing 2"){
-                document.getElementById("val").innerHTML +="<h5 style=\"color:green\">test case 2 passed</h5>";
-            }
-            else{
-                document.getElementById("val").innerHTML +="<h5 style=\"color:red\">test case 2 failed</h5>";
-            }
-        }
-        else{
-            document.getElementById("val").innerHTML +="<h5 style=\"color:red\">test case 2 failed</h5>";
-        }
-
-
-        if(iframe.contentWindow.document.getElementsByTagName("h1")[2]=="[object HTMLHeadingElement]"){
-            if(iframe.contentWindow.document.getElementsByTagName("h1")[2].innerHTML=="testing 3"){
-                document.getElementById("val").innerHTML +="<h5 style=\"color:green\">test case 3 passed</h5>";
-            }
-            else{
-                document.getElementById("val").innerHTML +="<h5 style=\"color:red\">test case 3 failed</h5>";
-            }
-        }
-        else{
-            document.getElementById("val").innerHTML +="<h5 style=\"color:red\">test case 3 failed</h5>";
-        }
-
-
-
-    
-    
-
-    var test1 = "testing 1";
-    var test2 = "testing 2";
-    var test3 = "testing 3";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//         if(iframe.contentWindow.document.getElementsByTagName("h1")[0]=="[object HTMLHeadingElement]"){
+//             if(iframe.contentWindow.document.getElementsByTagName("h1")[0].innerHTML=="testing 1"){
+//                 document.getElementById("val").innerHTML +="<h5 style=\"color:green\">test case 1 passed</h5>";
+//             }
+//             else{
+//                 document.getElementById("val").innerHTML +="<h5 style=\"color:red\">test case 1 failed</h5>";
+//             }
+//         }
+//         else{
+//             document.getElementById("val").innerHTML +="<h5 style=\"color:red\">test case 1 failed</h5>";
+//         }
+
+
+//         if(iframe.contentWindow.document.getElementsByTagName("h1")[1]=="[object HTMLHeadingElement]"){
+//             if(iframe.contentWindow.document.getElementsByTagName("h1")[1].innerHTML=="testing 2"){
+//                 document.getElementById("val").innerHTML +="<h5 style=\"color:green\">test case 2 passed</h5>";
+//             }
+//             else{
+//                 document.getElementById("val").innerHTML +="<h5 style=\"color:red\">test case 2 failed</h5>";
+//             }
+//         }
+//         else{
+//             document.getElementById("val").innerHTML +="<h5 style=\"color:red\">test case 2 failed</h5>";
+//         }
+
+
+//         if(iframe.contentWindow.document.getElementsByTagName("h1")[2]=="[object HTMLHeadingElement]"){
+//             if(iframe.contentWindow.document.getElementsByTagName("h1")[2].innerHTML=="testing 3"){
+//                 document.getElementById("val").innerHTML +="<h5 style=\"color:green\">test case 3 passed</h5>";
+//             }
+//             else{
+//                 document.getElementById("val").innerHTML +="<h5 style=\"color:red\">test case 3 failed</h5>";
+//             }
+//         }
+//         else{
+//             document.getElementById("val").innerHTML +="<h5 style=\"color:red\">test case 3 failed</h5>";
+//         }
+//     var test1 = "testing 1";
+//     var test2 = "testing 2";
+//     var test3 = "testing 3";    
+// }
+
+
+
+function SumValidate(){
+    var iframe = document.getElementById("output");
+    var firstnumber = iframe.contentWindow.document.getElementById("firstnumber").value;
+    var secondnumber = iframe.contentWindow.document.getElementById("secondnumber").value;
+
+
+    var f1 = parseInt(firstnumber);
+    var l1 = parseInt(secondnumber);
+    const expoutput = f1+l1;
+    var output =  iframe.contentWindow.document.getElementById("result").innerHTML;
+    var out1 = parseInt(output);
+    if(expoutput==out1){
+        document.getElementById("val").innerHTML +="<h5 style=\"color:green\">test case 1 passed</h5>";
+    }
+    else{
+        document.getElementById("val").innerHTML +="<h5 style=\"color:red\">test case 1 failed</h5>";
+    }
 
  
 
-
-
-    
 }
-
-
-
-
 
 
 
@@ -248,7 +193,7 @@ body{
       -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    font-size: 20px;
+    font-size: 13px;
 }
 #css-code{
     width: 480px;
